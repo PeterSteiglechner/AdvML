@@ -34,7 +34,7 @@ for i in range(M_reuters):
     file = training_ids[i] # filename
     training.append(reuters.words(file)) #append the document to training
 
-doc_lengths =  [len(training[i]) for i in range(len(training))] # this is N_d (length of each of the documents)
+doc_lengths = [len(training[i]) for i in range(len(training))] # this is N_d (length of each of the documents)
 print("We have ", len(training), " Documents with sizes: ", doc_lengths[:100])
 
 #" ".join(training[0])
@@ -45,6 +45,7 @@ vocab_list=[] #
 def create_dict(data, test = True):     
     global vocab_list # change the global vocab_list
     D=[]  # dim = (#documents, #N_reduced_d),    where N_reduced_d is the Nr of words that are not filtered / are not unnecessary
+
     for d in data: # for each document
         # Uncomment 3 lines below to test the function with the string below 
         # test=True
@@ -69,6 +70,9 @@ def create_dict(data, test = True):
             
         #D.append(d_vocabInd)   # Add document to corpus
         D.append(d_words)   # Add document to corpus
+
+        #print(len(vocab_list))
+
     return D
 
 
@@ -112,8 +116,8 @@ D, vocab_list
 
 vocab_list = [] # init vocab_list
 D_reuters = create_dict(training)
-#
-# len(D_reuters), len(vocab_list)
+
+print(len(D_reuters), len(vocab_list))
 
 
 #lengths = [] # Lengths of the cleaned documents 
